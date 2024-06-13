@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { cn } from '@/libs/utils';
 
 export const buttonVariants = cva(
-  'rounded-[10px] transition-all outline-none hover:text-white disabled:text-white-800 disabled:border md:font-semibold xl:text-lg',
+  'rounded-[10px] transition-all outline-none hover:text-white disabled:bg-blue-50 disabled:text-white-800 disabled:border md:font-semibold xl:text-lg',
   {
     variants: {
       variant: {
         roundedBtn:
-          'leading-none rounded-[33px] text-white bg-blue-500 hover:bg-blue-700  py-[14px] px-6 md:px-[30px] md:py-[16px] xl:py-[18px] disabled:bg-white-500 ',
+          'leading-none rounded-[33px] text-white bg-blue-500 hover:bg-blue-700  py-[14px] px-6 md:px-[30px] md:py-[16px] xl:py-[18px]  ',
         primaryBtn:
-          'rounded-[10px] text-white bg-blue-500 hover:bg-blue-700 py-[14px] px-6 md:px-[30px] md:py-[16px] xl:py-[18px] disabled:bg-white-500 ',
+          'rounded-[10px] text-white bg-blue-500 hover:bg-blue-700 py-[14px] px-6 md:px-[30px] md:py-[16px] xl:py-[18px] ',
         regulerBtn:
-          'rounded-[10px] text-white bg-blue-500 hover:bg-blue-700 py-[14px]  px-6 md:px-[30px] md:py-[16px] xl:py-[18px] disabled:bg-white-500  ',
+          'rounded-[10px] text-white bg-blue-500 hover:bg-blue-700 py-[14px]  px-6 md:px-[30px] md:py-[16px] xl:py-[18px] ',
         outlineBtn:
           'border border-blue-500 hover:border-blue-700 text-blue-500 hover:text-blue-700  py-[14px] px-3 md:px-[30px] md:py-[16px] xl:py-[18px]  disabled:border-white-800',
         textBtn:

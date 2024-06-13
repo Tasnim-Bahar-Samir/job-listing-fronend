@@ -6,7 +6,7 @@ const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <DefaultNavbar />
-      <div className="min-h-[100vh]">{children}</div>
+      <div className="min-h-[calc(100vh-143px)]">{children}</div>
       <DefaultFooter />
     </div>
   );
