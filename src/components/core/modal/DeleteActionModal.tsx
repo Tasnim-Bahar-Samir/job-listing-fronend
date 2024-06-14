@@ -5,6 +5,7 @@ import { toast } from "@/components/ui/use-toast";
 import Text from "../typography/Text";
 import { MdDelete } from "react-icons/md";
 type DeleteActionProps = {
+  remove?: boolean;
   revalidateFun?: Function;
   handleDeleteSubmit: Function;
   isLoading: boolean;
@@ -12,6 +13,7 @@ type DeleteActionProps = {
 };
 
 const DeleteActionModal: FC<DeleteActionProps> = ({
+  remove,
   revalidateFun,
   isOnlyIcon,
   isLoading,
@@ -44,7 +46,7 @@ const DeleteActionModal: FC<DeleteActionProps> = ({
     <div>
       <Dialog open={open} onOpenChange={() => setOpen(!open)}>
         <div onClick={() => setOpen(!open)} className="cursor-pointer">
-          {isOnlyIcon ? (
+          {remove ? <Button variant={"regulerBtn"} className="bg-red-600 w-full hover:bg-red-600" label="Remove"/>: isOnlyIcon ? (
             <MdDelete className="text-red-500" />
           ) : (
             <div className=" w-full p-2 px-4 flex items-center text-red-500 gap-1 rounded-md bg-white-200">
@@ -76,6 +78,16 @@ const DeleteActionModal: FC<DeleteActionProps> = ({
                 label="Cancel"
                 variant={"roundedBtn"}
               />
+              {
+                remove ? 
+                <Button
+                disabled={isLoading}
+                className=" bg-red-500 hover:bg-red-500"
+                variant={"roundedBtn"}
+                onClick={handleDelete}
+                label={`${isLoading ? "Removing.." : "Remove"}`}
+              />
+              :
               <Button
                 disabled={isLoading}
                 className=" bg-red-500 hover:bg-red-500"
@@ -83,6 +95,7 @@ const DeleteActionModal: FC<DeleteActionProps> = ({
                 onClick={handleDelete}
                 label={`${isLoading ? "Deleting.." : "Delete"}`}
               />
+              }
             </div>
           </div>
         </DialogContent>

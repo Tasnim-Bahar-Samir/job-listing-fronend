@@ -1,18 +1,18 @@
 import AuthPage from "@/components/pages/auth/AuthPage";
 import RoutePermission from "@/components/pages/auth/RoutePermission";
-import JobListManagement from "@/components/pages/job/JobManagement";
+import SavedJobPage from "@/components/pages/job/savedJob/SavedJobs.page";
 import React from "react";
 
-const JobManagementPage = () => {
+const SavedJob = () => {
   return (
     <div>
       <AuthPage>
-        <RoutePermission group="COMPANY">
-          <JobListManagement />
+        <RoutePermission group="CANDIDATE">
+          <SavedJobPage />
         </RoutePermission>
       </AuthPage>
     </div>
   );
 };
 
-export default JobManagementPage;
+export default SavedJob;

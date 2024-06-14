@@ -7,7 +7,6 @@ import { AuthFormType } from '@/models/AuthForm.type';
 import { useFormik } from 'formik';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { FC } from 'react';
-import Link from 'next/link';
 import { AuthFormValidation } from '@/libs/validation/Authform.validate';
 
 type AuthFormProps = {
@@ -53,7 +52,7 @@ const AuthForm: FC<AuthFormProps> = ({ handleDataSubmit }) => {
           if (handleDataSubmit) {
             await handleDataSubmit(data);
           }
-          console.log(data)
+          // console.log(data)
           await signIn('credentials', {
             // redirect: false, 
             email: data.email,
@@ -120,13 +119,6 @@ const AuthForm: FC<AuthFormProps> = ({ handleDataSubmit }) => {
             type="password"
             error={Boolean(errors.password) && touched.password && errors.password}
           />
-          {pathname === '/auth/login' && (
-            <div className="w-full  flex justify-end">
-              <Link href={'/account/reset'}>
-                <Button type="button" variant={'textBtn'} label="Forget Password?" />
-              </Link>
-            </div>
-          )}
         </div>
 
         <div className="w-full">
@@ -135,7 +127,7 @@ const AuthForm: FC<AuthFormProps> = ({ handleDataSubmit }) => {
             disabled={isSubmitting}
             className="w-full"
             variant={'roundedBtn'}
-            label={isSubmitting ? 'Loding...':pathname === '/auth/register' ? 'Sign Up' : 'Login'}
+            label={isSubmitting ? 'Loading...':pathname === '/auth/register' ? 'Sign Up' : 'Login'}
           />
         </div>
       </form>

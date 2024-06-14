@@ -1,8 +1,8 @@
-import axiousResuest from '@/libs/axiosRequest';
-import { useMutation } from '@tanstack/react-query';
-import { useQueryClient } from '@tanstack/react-query';
-import { useQuery } from '@tanstack/react-query';
-import { useSession } from 'next-auth/react';
+import axiousResuest from "@/libs/axiosRequest";
+import { useMutation } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useSession } from "next-auth/react";
 
 export type JobResponseType = {
   id: string;
@@ -13,18 +13,27 @@ export type JobResponseType = {
   deadline: string;
 };
 
-export const useGetJobData = (limit=30, offset=0) => {
+export const useGetUserJobData = (limit = 30, offset = 0) => {
+  const { data: session }: any = useSession();
   return useQuery({
-    queryKey: ['job'],
+    queryKey: ["job"],
     queryFn: () =>
       axiousResuest({
-        url: `/job/management/?limit=${limit}&offset=${offset}`,
-        method: 'get',
+        url: `/job/management/?user__id=${session?.user?.pk}&limit=${limit}&offset=${offset}`,
+        method: "get",
       }),
   });
 };
-
-
+export const useGetJobData = (limit = 30, offset = 0) => {
+  return useQuery({
+    queryKey: ["job"],
+    queryFn: () =>
+      axiousResuest({
+        url: `/job/management/?limit=${limit}&offset=${offset}`,
+        method: "get",
+      }),
+  });
+};
 
 export const useAddJobData = () => {
   const queryClient = useQueryClient();
@@ -34,13 +43,13 @@ export const useAddJobData = () => {
     mutationFn: async (body: any) =>
       await axiousResuest({
         url: `/job/management/`,
-        method: 'post',
+        method: "post",
         data: body,
         headers: {
           Authorization: `Bearer ${session?.accessToken}`,
         },
       }),
-    onSuccess: () => queryClient.invalidateQueries(['job']),
+    onSuccess: () => queryClient.invalidateQueries(["job"]),
   });
 };
 
@@ -51,14 +60,14 @@ export const useUpdateJob = (id: string) => {
     mutationFn: async (body: any) =>
       await axiousResuest({
         url: `/job/management/${id}/`,
-        method: 'patch',
+        method: "patch",
         data: body,
         headers: {
           Authorization: `Bearer ${session.accessToken}`,
         },
       }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['job'] });
+      queryClient.invalidateQueries({ queryKey: ["job"] });
     },
   });
 };
@@ -70,13 +79,13 @@ export const useDeleteJob = (id: string) => {
     mutationFn: async () =>
       await axiousResuest({
         url: `/job/management/${id}/`,
-        method: 'delete',
+        method: "delete",
         headers: {
           Authorization: `Bearer ${session.accessToken}`,
         },
       }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['job'] });
+      queryClient.invalidateQueries({ queryKey: ["job"] });
     },
   });
 };

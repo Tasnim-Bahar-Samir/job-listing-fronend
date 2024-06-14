@@ -1,18 +1,14 @@
 "use client";
 import Text from "@/components/core/typography/Text";
-import Button from "@/components/core/button/Button";
-import Link from "next/link";
 import {
-  JobResponseType,
-  useAddJobData,
-  useDeleteJob,
-  useGetJobData,
-  useUpdateJob,
+    JobResponseType,
+    useAddJobData,
+    useDeleteJob, useGetUserJobData,
+    useUpdateJob
 } from "@/hooks/job.hooks";
 import { useState } from "react";
 import CustomPagination from "@/components/core/pagination/CustomPagination";
 import DataTable, { DataTableColumn } from "@/components/core/table/DataTable";
-import { FaPlus } from "react-icons/fa";
 import JobActions from "./JobActions";
 import JobForm from "./JobForm";
 
@@ -90,7 +86,7 @@ const JobListManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
   let dataPerpage = 30;
   let offset = (currentPage - 1) * dataPerpage;
-  const { data, isLoading } = useGetJobData(dataPerpage, offset);
+  const { data, isLoading } = useGetUserJobData(dataPerpage, offset);
   const totalData = data?.count;
   const pageCount = Math.ceil(totalData / dataPerpage);
 

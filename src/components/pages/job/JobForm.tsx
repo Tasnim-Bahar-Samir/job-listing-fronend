@@ -33,6 +33,7 @@ const JobForm: FC<JobFormProps> = ({
     setFieldValue,
   } = useFormik({
     initialValues: {
+      user: session?.user?.pk,
       title: instance?.title || "",
       company: instance?.company || "",
       location: instance?.location || "",
@@ -126,9 +127,7 @@ const JobForm: FC<JobFormProps> = ({
                   onChange={handleChange}
                   type="text"
                   error={
-                    Boolean(errors.salary) &&
-                    touched.salary &&
-                    errors.salary
+                    Boolean(errors.salary) && touched.salary && errors.salary
                   }
                 />
               </div>

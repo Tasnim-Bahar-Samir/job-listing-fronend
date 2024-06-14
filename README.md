@@ -1,10 +1,10 @@
 # Find Job - A job listing website for candidates and comapnies.
 
-[![Framework](https://img.shields.io/badge/framework-next.js-black.svg?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![CSSFramework](https://img.shields.io/badge/css%20framework-tailwind%20css-06B6D4.svg?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
 [![MotionLibrary](https://img.shields.io/badge/motion%20library-framer%20motion-0055FF.svg?style=for-the-badge&logo=framer)](https://www.framer.com/motion)
 [![Language](https://img.shields.io/badge/language-Typescript-3178C6.svg?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org)
 [![PackageManager](https://img.shields.io/badge/package%20manager-pnpm-F69220.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
+
 <!-- [![License](https://img.shields.io/badge/license-Proprietary-F40D12.svg?style=for-the-badge&logo=adblock)](https://github.com/next-moov/next-moov-fe/blob/master/LICENSE) -->
 
 Next.js app configured with:
@@ -18,12 +18,26 @@ Next.js app configured with:
 - Testing with [Jest](https://jestjs.io/)
   and [react-testing-library](https://testing-library.com/docs/react-testing-library/intro)
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`API_URL`
+
+`NEXT_PUBLIC_API_BASE_URL`
+
+`NEXTAUTH_URL`
+
+`JWT_SICRECT_KEY`
+
+`NEXTAUTH_SECRET`
+
 ## How to use
 
 To begin
 
 ```sh
-pnpm install && pnpm dlx husky install
+pnpm install 
 ```
 
 To run development server (PORT = 3000)
