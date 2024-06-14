@@ -33,6 +33,7 @@ const SavedJobPage = () => {
                   company={i?.job.company}
                   location={i?.job.location}
                   deadline={i?.job.deadline}
+                  salary={i?.job.salary}
                 />
               ))}
         </div>

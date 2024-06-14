@@ -62,6 +62,7 @@ type JobCardProps = {
   company: string;
   deadline: string;
   location: string;
+  salary: string;
 };
 
 const JobCard: FC<JobCardProps> = ({
@@ -71,7 +72,9 @@ const JobCard: FC<JobCardProps> = ({
   company,
   location,
   deadline,
+  salary,
 }) => {
+  console.log(salary)
   const { status } = useSession();
   return (
     <div className="border border-blue-100 rounded-xl p-5 space-y-3 xl:space-y-5">
@@ -81,6 +84,14 @@ const JobCard: FC<JobCardProps> = ({
       <h6>
         <Text variant={"title_1"} label={company} />
       </h6>
+      <div className="flex items-center gap-1">
+        <p>
+          <Text variant={"paragraph_1"} label={"Salary:"} />
+        </p>
+        <h6>
+          <Text variant={"paragraph_2"} label={'৳'+salary} />
+        </h6>
+      </div>
       <div className="flex items-center justify-between gap-5 ">
         <div className="flex items-center gap-1">
           <IoLocationOutline size={16} />

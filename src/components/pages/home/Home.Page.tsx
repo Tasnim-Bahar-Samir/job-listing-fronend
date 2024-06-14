@@ -20,6 +20,7 @@ const HomePage = () => {
                 company={i.company}
                 location={i.location}
                 deadline={i.deadline}
+                salary={i.salary}
               />
             ))}
       </div>
