@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/libs/utils';
 
-const textVariants = cva('leading-none ', {
+const textVariants = cva('leading-none block', {
   variants: {
     variant: {
       header_1: 'font-bold text-[1.063rem] leading-none md:text-[1.25rem] xl:text-[1.375rem]',

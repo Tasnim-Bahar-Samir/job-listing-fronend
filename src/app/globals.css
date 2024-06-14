@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.tableAction:nth-last-child(1) {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
 .commonContainer {
     max-width: 1517px;
     margin-left: auto;
