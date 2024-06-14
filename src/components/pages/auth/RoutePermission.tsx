@@ -11,7 +11,7 @@ const RoutePermission = ({
   group: string;
 }) => {
   const { data: profileData, isLoading } = useGetProfileData();
-  console.log(isLoading);
+  
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-screen bg-tmlt-Primary-8 bg-opacity-50">

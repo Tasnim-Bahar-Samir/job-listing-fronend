@@ -74,7 +74,6 @@ const JobCard: FC<JobCardProps> = ({
   deadline,
   salary,
 }) => {
-  console.log(salary)
   const { status } = useSession();
   return (
     <div className="border border-blue-100 rounded-xl p-5 space-y-3 xl:space-y-5">
